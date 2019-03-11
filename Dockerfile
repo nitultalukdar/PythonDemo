@@ -9,6 +9,8 @@ COPY djangoproject /app/djangoproject
 COPY posts	 /app/posts
 COPY manage.py /app
 COPY requirements.txt /app
+COPY sonar-runner.properties ./sonar-scanner/conf/sonar-scanner.properties
+
 
 RUN apt-get update && apt-get -y install ca-certificates
 ADD https://get.aquasec.com/microscanner /
@@ -27,4 +29,5 @@ EXPOSE 8000
 
 # Run app.py when the container launches
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD sonar-scanner -Dsonar.projectBaseDir=./src
 #CMD ["sleep", "45m"]
