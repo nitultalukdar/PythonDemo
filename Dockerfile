@@ -10,6 +10,13 @@ COPY posts	 /app/posts
 COPY manage.py /app
 COPY requirements.txt /app
 
+RUN apt-get update && apt-get -y install ca-certificates
+ADD https://get.aquasec.com/microscanner /
+RUN chmod +x /microscanner
+ARG token
+RUN /microscanner ${OWIzMTA5NTYwMmE0}
+RUN echo "No vulnerabilities!"
+  
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
