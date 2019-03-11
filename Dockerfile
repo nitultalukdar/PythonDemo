@@ -5,8 +5,8 @@ FROM python:3.6.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY djangoproject /app
-COPY posts	 /app
+COPY djangoproject /app/djangoproject
+COPY posts	 /app/posts
 COPY manage.py /app
 COPY requirements.txt /app
 
