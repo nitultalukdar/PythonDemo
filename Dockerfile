@@ -9,7 +9,7 @@ COPY djangoproject /app/djangoproject
 COPY posts	 /app/posts
 COPY manage.py /app
 COPY requirements.txt /app
-COPY sonar-runner.properties ./sonar-scanner/conf/sonar-scanner.properties
+
 
 
 RUN apt-get update && apt-get -y install ca-certificates
@@ -22,6 +22,14 @@ CMD sonar-scanner -Dsonar.projectBaseDir=./src
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
+RUN set -x \
+&& curl -fSL -o sonar-cxx-plugin-0.9.7.jar https://github.com/SonarOpenCommunity/sonar-cxx/releases/download/cxx-0.9.7/sonar-cxx-plugin-0.9.7.jar
+
+VOLUME ["$SONARQUBE_HOME/data", "$SONARQUBE_HOME/extensions"]
+
+WORKDIR $SONARQUBE_HOME
+
+ENTRYPOINT ["/opt/sonarqube/bin/run.sh"]
 # Make port 80 available to the world outside this container
 EXPOSE 8000
 
