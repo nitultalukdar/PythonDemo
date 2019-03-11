@@ -29,7 +29,7 @@ RUN set -x \
 	&& gpg --batch --verify sonarqube.zip.asc sonarqube.zip \
 	&& unzip sonarqube.zip \
 	&& mv sonarqube-$SONAR_VERSION sonarqube \
-	&& rm sonarqube.zip* \
+	&& rm sonarqube.zip* 
 	
 # Make port 80 available to the world outside this container
 EXPOSE 8000
