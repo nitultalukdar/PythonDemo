@@ -8,6 +8,7 @@ WORKDIR /app
 COPY djangoproject /app
 COPY posts	 /app
 COPY manage.py /app
+COPY requirements.txt /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
