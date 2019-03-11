@@ -26,7 +26,13 @@ pipeline {
         }
       }
     }
-      
+     
+       stage('Aqua MicroScanner') {
+        steps{
+       aquaMicroscanner imageName:'7459f109dc97', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+       
+        }
+    }
       stage('Cleanup') {
       when {
                 not { environment ignoreCase: true, name: 'containerId', value: '' }
