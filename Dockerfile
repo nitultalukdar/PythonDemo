@@ -20,4 +20,4 @@ EXPOSE 8000
 
 # Run app.py when the container launches
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-CMD ["sleep", "45m"]
+#CMD ["sleep", "45m"]
