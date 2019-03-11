@@ -1,6 +1,6 @@
 pipeline {
    environment {
-    registry = "vinay4790/testrepo"
+    registry = "javeedmo29/dockerproject"
     registryCredential = 'dockerhub'
     dockerImage = ''
     containerId = sh(script: 'docker ps -aqf "name=java-app"', returnStdout: true) //to store your container id , so that it can be deleted
