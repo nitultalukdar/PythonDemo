@@ -19,5 +19,5 @@ EXPOSE 8000
 # Define environment variable
 
 # Run app.py when the container launches
-#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 #CMD ["sleep", "45m"]
