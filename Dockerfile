@@ -18,7 +18,7 @@ RUN chmod +x /microscanner
 ARG token
 RUN /microscanner ${OWIzMTA5NTYwMmE0}
 RUN echo "No vulnerabilities!"
-  
+CMD sonar-scanner -Dsonar.projectBaseDir=./src 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
@@ -29,5 +29,5 @@ EXPOSE 8000
 
 # Run app.py when the container launches
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-CMD sonar-scanner -Dsonar.projectBaseDir=./src
+
 #CMD ["sleep", "45m"]
