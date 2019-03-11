@@ -30,7 +30,7 @@ RUN set -x \
 	&& unzip sonarqube.zip \
 	&& mv sonarqube-$SONAR_VERSION sonarqube \
 	&& rm sonarqube.zip* \
-	&& rm -rf $SONARQUBE_HOME/bin/*
+	
 # Make port 80 available to the world outside this container
 EXPOSE 8000
 
