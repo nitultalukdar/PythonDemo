@@ -6,6 +6,9 @@ pipeline {
     containerId = sh(script: 'docker ps -aqf "name=java-app"', returnStdout: true) //to store your container id , so that it can be deleted
   }
   agent any
+   tools {
+    sonar 'SonarQube Scanner'  
+   }
     stages 
     {
         stage('Building image') {
