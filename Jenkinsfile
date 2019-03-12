@@ -36,7 +36,7 @@ pipeline {
        
        stage("Sonar scanner"){
           steps{
-            sh 'export PATH=$PATH:$SONAR_HOME'
+            sh 'export PATH=$PATH:/opt/sonar/bin'
             sh"sonar-scanner \
   -Dsonar.projectKey=aaa \
   -Dsonar.sources=. \
