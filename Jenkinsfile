@@ -67,6 +67,11 @@ pipeline {
       }
     }
 
+       stage('ARACHNI Scanning') {
+         steps {
+            arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://foo:8080', userConfig: [filename: 'myConfiguration.json'], format: 'json'
+         }
+      }
 
  }
 }
