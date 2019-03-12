@@ -6,9 +6,6 @@ pipeline {
     containerId = sh(script: 'docker ps -aqf "name=java-app"', returnStdout: true) //to store your container id , so that it can be deleted
   }
   agent any
-   tools {
-    SonarRunnerInstallation 'SonarQube Scanner'  
-   }
     stages 
     {
         stage('Building image') {
@@ -39,7 +36,7 @@ pipeline {
        
        stage("Sonar scanner"){
           steps{
-       
+            sh 'export PATH=$PATH:$SONAR_HOME'
             sh"sonar-scanner \
   -Dsonar.projectKey=aaa \
   -Dsonar.sources=. \
