@@ -36,8 +36,7 @@ pipeline {
        
        stage("Sonar scanner"){
           steps{
-            sh 'export PATH=$PATH:/opt/sonar/bin'
-            sh"sonar-scanner \
+            sh"/opt/sonar/bin/sonar-scanner \
   -Dsonar.projectKey=aaa \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://13.71.82.249:9000 \
