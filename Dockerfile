@@ -20,7 +20,7 @@ RUN /microscanner ${OWIzMTA5NTYwMmE0}
 RUN echo "No vulnerabilities!"
 
 
-RUN wget https://github.com/Arachni/arachni/releases/download/v1.5.1/${ARACHNI_VERSION}-linux-x86_64.tar.gz && \
+RUN curl https://github.com/Arachni/arachni/releases/download/v1.5.1/${ARACHNI_VERSION}-linux-x86_64.tar.gz && \
     tar xzvf ${ARACHNI_VERSION}-linux-x86_64.tar.gz && \
     mv ${ARACHNI_VERSION}/ /usr/local/arachni && \
     rm -rf *.tar.gz
