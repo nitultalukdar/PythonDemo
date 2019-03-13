@@ -37,10 +37,10 @@ pipeline {
        stage("Sonar scanner"){
           steps{
             sh"/opt/sonar/bin/sonar-scanner \
-  -Dsonar.projectKey=aaa \
-  -Dsonar.sources=. \
-  -Dsonar.host.url=http://13.71.118.188:9000 \
-  -Dsonar.login=221209a103baa6816ed58bc2f92889f488342f70"
+       -Dsonar.projectKey=python \
+       -Dsonar.sources=. \
+       -Dsonar.host.url=http://40.112.59.17:9000 \
+       -Dsonar.login=d484552d4abee2bc0d88c9aa48e9832ae47c2a7f"
          
           }
        }
@@ -69,7 +69,7 @@ pipeline {
 
        stage('ARACHNI Scanning') {
          steps {
-            arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://13.71.118.188:8000/posts/', userConfig: [filename: 'myConfiguration.json'], format: 'json'
+            arachniScanner checks: '*', scope: [pageLimit: 3], url: 'http://40.112.59.17:8000/posts/', userConfig: [filename: 'myConfiguration.json'], format: 'json'
          }
       }
 
